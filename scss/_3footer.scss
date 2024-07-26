@@ -1,0 +1,36 @@
+.footer {
+    background-color: #00195c;
+    &__title {
+        text-align: left;
+        padding: 0rem 1.875rem 5rem 0rem;
+        font-size: 1.125rem;
+        font-weight: 400;
+        margin-top: -0.1rem;
+    }
+}
+
+/*------------------760px------------------------*/
+
+@media (max-width: 760px) {
+    .footer {
+        &__title {
+            text-align: left;
+            padding: 0.5rem 0 5.5rem;
+            font-size: 1.53rem;
+            background-color: #00195c;
+        }
+    }
+}
+
+/*------------------375px------------------------*/
+
+@media (max-width: 375px) {
+    .footer {
+        &__title {
+            text-align: left;
+            padding: 30px 0px 50px 0px;
+            font-size: 13.9px;
+            background-color: #00195c;
+        }
+    }
+}

@@ -1,0 +1,547 @@
+.catalog {
+    overflow: hidden;
+
+    &__wrap {
+        background: linear-gradient(#013ebb, #00195c);
+        padding-bottom: 9.375rem;
+    }
+    &__text {
+        align-items: center;
+        line-height: 1.4375rem;
+        padding-top: 3.75rem;
+        margin-bottom: 3.75rem;
+        font-size: 1.125rem;
+        letter-spacing: -0.0065rem;
+
+        br {
+            display: none;
+        }
+    }
+}
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1.25rem 1.25rem;
+    overflow: hidden;
+
+    &__photo1,
+    &__photo2,
+    &__photo3 {
+        display: block;
+        position: relative;
+        border-radius: 0.625rem;
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__photo1 {
+        grid-column-start: 1;
+        grid-column-end: 8;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    &__photo2 {
+        grid-column-start: 8;
+        grid-column-end: 13;
+    }
+
+    &__photo3 {
+        grid-column-start: 8;
+        grid-column-end: 13;
+    }
+    &__text {
+        position: absolute;
+        color: #1241b2;
+        font-size: 1.25rem;
+        font-weight: 500;
+        border-radius: 0.625rem;
+        padding: 0.625rem 0.625rem;
+        bottom: 0;
+        background-color: var(--color-white);
+    }
+}
+
+/*------------------------------------------------*/
+
+.catalog-info {
+    position: relative;
+    background-color: var(--color-white);
+    border-radius: 0.625rem;
+    margin-top: 9.25rem;
+    padding: 0 5rem 5rem 5rem;
+
+    &__subtitle {
+        color: #1241b2;
+        font-size: 3.25rem;
+        font-weight: 800;
+        font-family: "MursGothic";
+        padding-top: 4.5rem;
+        line-height: 4rem;
+
+        span {
+            color: #01195c;
+            font-size: 3.25rem;
+            font-weight: 800;
+            font-family: "MursGothic";
+        }
+    }
+    &__title {
+        font-size: 1.75rem;
+        font-weight: 500;
+        color: var(--color-black);
+        margin-top: 0.8125rem;
+        line-height: 2.25rem;
+    }
+}
+.search-form {
+    &__input {
+        width: 100%;
+        max-width: 36.3rem;
+        height: 3.625rem;
+        border-radius: 0.625rem;
+        font-size: 1.375rem;
+        border: 0.0625rem solid #00b2ff; /*толщина рамки*/
+        display: inline-flex; /*ширина зависит от содержания, а не растягивается на всю длину блока*/
+        padding: 0 1.25rem;
+        align-items: center;
+        overflow: hidden;
+        background-color: var(--color-white);
+        color: var(--color-black);
+
+        &_1 {
+            margin-top: 3.25rem;
+            margin-bottom: 1.875rem;
+        }
+        &_2 {
+            margin-bottom: 1.875rem;
+        }
+    }
+}
+.check {
+    display: flex;
+    p {
+        font-family: "Montserrat";
+        color: #4f4f4f;
+        margin-top: 1.875rem;
+        margin-left: 0.625rem;
+        font-size: 1.125rem;
+
+        br {
+            display: none;
+        }
+    }
+}
+.real-checkbox {
+    /*скрываем стандартную галочку*/
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+
+    /*активируем нарисованную галочку*/
+    &:checked + .custom-checkbox::before {
+        transform: translate(-50%, -50%) scale(1); /*позиционируем галочку*/
+    }
+    &:focus + .custom-checkbox {
+        /*подсвечиваем галочку при выборе*/
+        box-shadow: 0rem 0rem 0rem 0.0625rem #00b2ff; /*рамка*/
+    }
+}
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 0.125rem;
+    background-color: var(--color-white);
+    border: 0.0625rem solid #00b2ff;
+    vertical-align: -0.125rem;
+    margin-top: 1.875rem;
+
+    &::before {
+        /*рисуем галочку*/
+        content: "";
+        display: inline-block;
+        width: 0.9375rem;
+        height: 0.9375rem;
+        background-image: url(/img/check.svg); /*вставляем галочку*/
+        background-size: contain; /*чтобы галочка поместилась и правильно отмаштабировалась*/
+        background-repeat: no-repeat; /*чтобы галочка не повторялась*/
+        /*Выравниваем галочку по центру*/
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        margin-top: 0.0625rem;
+        transition: 0.2s ease-in;
+    }
+}
+.default-btn {
+    &__btn {
+        margin-top: 1.75rem;
+        padding: 1.5rem 11.625rem 1.125rem 11.625rem;
+
+        a {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: "MursGothic";
+        }
+    }
+}
+.rocket {
+    position: relative;
+
+    &__photo {
+        width: 43.125rem;
+        pointer-events: none;
+        position: absolute;
+        transform: translate(50%, -100%);
+        top: 12.8125rem;
+        right: -1.5625rem;
+        z-index: 5;
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+.footer-title {
+    margin-top: 13.4375rem;
+    font-size: 1.125rem;
+    padding-bottom: 5rem;
+    letter-spacing: -0.005rem;
+}
+
+/*------------------760px------------------------*/
+
+@media (max-width: 760px) {
+    .catalog {
+        &__wrap {
+            padding-bottom: 7rem;
+        }
+
+        &__text {
+            font-size: 1.77rem;
+            line-height: 1.245;
+            margin: 0 0 3.5rem;
+        }
+        br {
+            display: none;
+        }
+    }
+    .catalog-grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1.85rem 0;
+
+        &__photo1 {
+            grid-column-end: 1;
+            grid-row-end: 1;
+            min-height: 13rem;
+            aspect-ratio: 15/9;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+        }
+        &__photo2 {
+            grid-column-start: 1;
+            aspect-ratio: 15/9;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+        }
+        &__photo3 {
+            grid-column-start: 1;
+            aspect-ratio: 15 / 9;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                border-radius: 1rem;
+            }
+        }
+        &__text {
+            border-radius: 1rem;
+            font-size: 1.55rem;
+            padding: 1rem 0.6rem;
+        }
+    }
+    /*-------------------------------------------*/
+    .catalog-info {
+        border-radius: 1rem;
+        padding: 1.5rem 1.8rem 1.7rem;
+        margin-top: 3.75rem;
+
+        &__subtitle {
+            font-size: 2.75rem;
+            letter-spacing: -0.025em;
+            line-height: 1.05;
+            padding-top: 0;
+
+            span {
+                font-size: 2.75rem;
+            }
+        }
+        &__title {
+            font-size: 1.55rem;
+            line-height: 1.14;
+            margin: 2.35rem 0 0;
+            max-width: 95%;
+
+            br {
+                display: none;
+            }
+        }
+    }
+    .search-form {
+        padding-left: 0;
+
+        &__input {
+            max-width: calc(100% - 9rem);
+            padding: 0 1.375rem;
+            border: 0.25rem solid #00b2ff;
+            border-radius: 1rem;
+            height: 5.5rem;
+            font-size: 1.7rem;
+            line-height: 1.3;
+            letter-spacing: 0.02em;
+
+            &_1 {
+                margin-top: 1.875rem;
+                margin-bottom: 1.25rem;
+            }
+            &_2 {
+                margin-bottom: 1.25rem;
+            }
+        }
+    }
+    .check {
+        padding-left: 0;
+        display: flex;
+        p {
+            width: 100%;
+            max-width: calc(100% - 8rem);
+            font-size: 1.54rem;
+            line-height: 1.3;
+            padding: 0.1rem 0 0 1.1rem;
+
+            br {
+                display: none;
+            }
+        }
+    }
+    .custom-checkbox {
+        margin-left: 0;
+        margin: 1.7rem 0 0 0.0625rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.25rem;
+        flex: 0 0 auto;
+
+        &::before {
+            //рисуем галочку
+            content: "";
+            display: inline-block;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+    .default-btn {
+        margin: 3rem 0 0;
+
+        &__btn {
+            display: flex;
+            width: 100%;
+            max-width: calc(100% - 6rem);
+            height: 6.7rem;
+            border: 0.125rem solid #0050cf;
+            padding: 0;
+            font-size: 2.2rem;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .rocket {
+        position: relative;
+
+        &__photo {
+            position: absolute;
+            width: 30.5rem;
+            opacity: 1;
+            top: 8rem;
+            right: -1.3rem;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*------------------375px------------------------*/
+
+@media screen and (max-width: 375px) {
+    .catalog {
+        &__wrap {
+            padding-bottom: 60px;
+        }
+        &__text {
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: -0.05px;
+            padding-top: 32px;
+            margin-bottom: 33px;
+        }
+        br {
+            display: inline;
+        }
+    }
+    .catalog-grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 17px 0px;
+
+        &__photo1,
+        &__photo2,
+        &__photo3 {
+            min-height: 207px;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+        &__photo1 {
+            grid-column-end: 1;
+            grid-row-end: 1;
+            aspect-ratio: 15/9;
+        }
+        &__photo2 {
+            grid-column-start: 1;
+            aspect-ratio: 15/9;
+        }
+        &__photo3 {
+            grid-column-start: 1;
+            aspect-ratio: 15 / 9;
+        }
+        &__text {
+            font-size: 14px;
+            border-radius: 10px;
+            padding: 8px 6px;
+        }
+    }
+    /*---------------------------------------------*/
+    .catalog-info {
+        padding: 0;
+        margin-top: 48px;
+        border-radius: 10px;
+        padding-left: 16px;
+        padding-bottom: 16px;
+
+        &__subtitle {
+            padding-left: 0;
+            font-size: 24px;
+            padding-top: 14px;
+            line-height: 26px;
+            letter-spacing: 0px;
+
+            span {
+                font-size: 24px;
+            }
+        }
+        &__title {
+            padding-left: 0;
+            font-size: 14px;
+            margin-top: 22px;
+            line-height: 16px;
+            width: 100%;
+
+            br {
+                display: none;
+            }
+        }
+    }
+    .search-form {
+        padding: 0;
+
+        &__input {
+            max-width: 222px;
+            width: 100%;
+            padding: 1px 20px 0px 20px;
+            border: 1px solid #00b2ff;
+            border-radius: 10px;
+            height: 46px;
+            font-size: 16px;
+            letter-spacing: 0px;
+
+            &_1 {
+                margin-top: 30px;
+                margin-bottom: 16px;
+            }
+            &_2 {
+                margin-bottom: 18px;
+            }
+        }
+    }
+    .check {
+        padding-left: 0;
+
+        p {
+            margin: 0;
+            width: 100%;
+            max-width: calc(100% - 20px);
+            font-size: 14px;
+            line-height: 1.35;
+            padding: 16px 0 0 10px;
+
+            br {
+                display: inline;
+            }
+        }
+    }
+    .custom-checkbox {
+        margin: 16px 0 0 1px;
+        width: 18px;
+        height: 18px;
+    }
+    .default-btn {
+        margin: 0;
+        margin-top: 27px;
+
+        &__btn {
+            width: 100%;
+            max-width: calc(100% - 70px);
+            height: 56px;
+            border: 2px solid #0050cf;
+            padding: 0;
+            font-size: 20px;
+        }
+    }
+    .rocket {
+        position: relative;
+
+        &__photo {
+            position: absolute;
+            width: 275px;
+            opacity: 1;
+            top: 70px;
+            right: 3px;
+
+            img {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+}
