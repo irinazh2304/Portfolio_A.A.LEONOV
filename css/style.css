@@ -1,16 +1,17 @@
 @charset "UTF-8";
 @font-face {
-  font-family: "MursGothic";
-  src: url(fonts/MursGothic/MursGothic-WideDark.woff), url(fonts/MursGothic/MursGothic-WideDark.woff2);
-  font-weight: 800;
-  font-style: normal;
-  font-display: normal;
+    font-family: "MursGothic";
+    src: url("./../fonts/MursGothic/MursGothic-WideDark.woff") format("woff"), 
+        url("./../fonts/MursGothic/MursGothic-WideDark.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: normal;
 }
 @font-face {
-  font-family: "Montserrat";
-  src: url(fonts/Montserrat/Montserrat-Medium.ttf);
-  font-style: normal;
-  font-display: normal;
+    font-family: "Montserrat";
+    src: url("./../fonts/Montserrat/Montserrat-Medium.ttf") format("ttf");
+    font-style: normal;
+    font-display: normal;
 }
 :root {
   --color-white: #fff;
